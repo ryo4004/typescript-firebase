@@ -38,12 +38,20 @@ const Signup: FC<SignupProps> = ({
 }) => {
 
   useEffect(() => {
+    return () => changeEmail('')
+  }, [changeEmail])
+
+  useEffect(() => {
+    return () => changePassword('')
+  }, [changePassword])
+
+  useEffect(() => {
     setError({code: '', message: ''})
     return () => setError({code: '', message: ''})
-  }, [])
+  }, [setError])
 
   const showError = () => {
-    if (!error) return false
+    if (error.code === '') return false
     let message
     switch (error.code) {
       // Local Error

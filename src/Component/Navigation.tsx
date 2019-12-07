@@ -14,7 +14,6 @@ const Navigation: FC = () => {
   return (
     <React.Fragment>
       {/* <Toast /> */}
-      Component
       <Switch>
         <Route path='/login' component={Base} />
         <Route path='/signup' component={Base} />
