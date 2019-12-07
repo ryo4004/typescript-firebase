@@ -2,13 +2,11 @@ import React, { FC } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { ConnectedRouter } from 'connected-react-router'
-import createStore, { history, sagaMiddleware } from './Store/Store'
+import store, { history, sagaMiddleware } from './Store/Store'
 import rootSaga from './Sagas/Saga/Saga'
 
 import Navigation from './Component/Navigation'
 import './App.scss'
-
-const store = createStore()
 
 const App: FC = () => {
   return (

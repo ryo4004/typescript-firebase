@@ -13,7 +13,7 @@ import createReducer from '../Reducers/Reducer/Reducer'
 export const history = createBrowserHistory()
 export const sagaMiddleware = createSagaMiddleware()
 
-export default function createStore () {
+function createStore () {
   return reduxCreateStore(
     createReducer(history),
     compose(
@@ -25,3 +25,6 @@ export default function createStore () {
     )
   )
 }
+
+const store = createStore()
+export default store
