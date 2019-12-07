@@ -50,6 +50,10 @@ const Signup: FC<SignupProps> = ({
     return () => setError({code: '', message: ''})
   }, [setError])
 
+  const keyPress = (e: React.KeyboardEvent) => {
+    if (e.which === 13) requestSignup()
+  }
+
   const showError = () => {
     if (error.code === '') return false
     let message
@@ -88,8 +92,8 @@ const Signup: FC<SignupProps> = ({
     <div className='signup'>
       <div>
         <h2>アカウントの新規作成</h2>
-        <input type='text' value={email} onChange={(e) => changeEmail(e.target.value)} placeholder='ユーザ名' />
-        <input type='password' value={password} onChange={(e) => changePassword(e.target.value)} placeholder='パスワード' />
+        <input type='text' value={email} onChange={(e) => changeEmail(e.target.value)} onKeyPress={(e) => keyPress(e)} placeholder='ユーザ名' />
+        <input type='password' value={password} onChange={(e) => changePassword(e.target.value)} onKeyPress={(e) => keyPress(e)} placeholder='パスワード' />
         <div className='agreement'>
           <input type='checkbox' id='agreement' name='agreement' checked={agreement} onChange={() => changeAgreement(!agreement)} /><label htmlFor='agreement'>利用規約およびプライバシーポリシーに同意します</label>
         </div>

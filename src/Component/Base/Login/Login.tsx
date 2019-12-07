@@ -46,6 +46,10 @@ const Login: FC<LoginProps> = ({
     setError({code: '', message: ''})
     return () => setError({code: '', message: ''})
   }, [setError])
+  
+  const keyPress = (e: React.KeyboardEvent) => {
+    if (e.which === 13) requestLogin()
+  }
 
   const showError = () => {
     if (!error.code) return false
@@ -82,8 +86,8 @@ const Login: FC<LoginProps> = ({
     <div className='login'>
       <div>
         <h2>ログイン</h2>
-        <input type='text' value={email} onChange={(e) => changeEmail(e.target.value)} placeholder='ユーザ名' />
-        <input type='password' value={password} onChange={(e) => changePassword(e.target.value)} placeholder='パスワード' />
+        <input type='text' value={email} onChange={(e) => changeEmail(e.target.value)} onKeyPress={(e) => keyPress(e)} placeholder='ユーザ名' />
+        <input type='password' value={password} onChange={(e) => changePassword(e.target.value)} onKeyPress={(e) => keyPress(e)} placeholder='パスワード' />
         {showError()}
         <button onClick={() => requestLogin()} onTouchStart={() => {}}>{buttonLabel}</button>
         <div className='add-account'>アカウントの作成は<Link to='/signup'>こちら</Link></div>
