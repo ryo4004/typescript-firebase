@@ -1,6 +1,6 @@
 import { Reducer } from 'redux'
 import { SignupAction, SignupActionType } from '../Actions/Constants/Signup'
-import { SignupState } from '../Interfaces/Signup'
+import { SignupState } from '../Interfaces/Base/Signup/Signup'
 
 const initialState: SignupState = {
   loading: false,

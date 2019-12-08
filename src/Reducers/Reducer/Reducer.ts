@@ -2,8 +2,8 @@ import { combineReducers } from 'redux'
 import { connectRouter, RouterState } from 'connected-react-router'
 import { History } from 'history'
 
-import { LoginState } from '../../Interfaces/Login'
-import { SignupState } from '../../Interfaces/Signup'
+import { LoginState } from '../../Interfaces/Base/Login/Login'
+import { SignupState } from '../../Interfaces/Base/Signup/Signup'
 import { ToastState } from '../../Interfaces/Toast/Toast'
 
 import loginReducer from '../Login'

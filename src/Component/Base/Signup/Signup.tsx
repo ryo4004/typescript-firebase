@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 
 import store from '../../../Store/Store'
-import { StateProps, DispatchProps, SignupProps } from '../../../Interfaces/Signup'
+import { StateProps, DispatchProps, SignupProps } from '../../../Interfaces/Base/Signup/Signup'
 
 import {
   changeEmail,

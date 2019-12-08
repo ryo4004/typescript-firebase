@@ -1,6 +1,6 @@
 import { Reducer } from 'redux'
 import { LoginAction, LoginActionType } from '../Actions/Constants/Login'
-import { LoginState } from '../Interfaces/Login'
+import { LoginState } from '../Interfaces/Base/Login/Login'
 
 const initialState: LoginState = {
   loading: false,

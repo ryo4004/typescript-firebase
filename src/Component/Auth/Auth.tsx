@@ -3,12 +3,12 @@ import { Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 
-import { StateProps, DispatchProps, AuthProps } from '../../Interfaces/Auth/Auth'
-
+import { DispatchProps, AuthProps } from '../../Interfaces/Auth/Auth'
 import { requestAuthentication } from '../../Actions/Actions/Session'
 
 // import Login from './Login/Login'
 // import Signup from './Signup/Signup'
+import Home from './Home/Home'
 
 import './Auth.scss'
 
@@ -29,8 +29,7 @@ const Auth: FC<AuthProps> = ({
   return (
     <div className='auth'>
       <Switch>
-        {/* <Route path='/login' component={Login} /> */}
-        {/* <Route path='/signup' component={Signup} /> */}
+        <Route path='/home' component={Home} />
       </Switch>
     </div>
   )

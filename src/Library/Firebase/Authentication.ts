@@ -1,6 +1,6 @@
 import firebase from './firebase'
 
-export interface User {
+export type User = {
   user: firebase.User
 }
 
