@@ -1,16 +1,28 @@
-import { call, select, put, takeLatest } from 'redux-saga/effects'
+import { call, put, takeLatest } from 'redux-saga/effects'
+import { replace } from 'connected-react-router'
 import { SessionActionType } from '../Actions/Constants/Session'
-import { setError } from '../Actions/Actions/Signup'
+import { loading, setUser, setError } from '../Actions/Actions/Session'
+import { auth, getToken, logout } from '../Library/Firebase/Authentication'
 
 function* runRequestAuthentication () {
-  const state = yield select()
-  if (!state.signup.email || !state.signup.password) return yield put(setError({code: 'blankTextbox', message: ''}))
-  if (!state.signup.agreement) return yield put(setError({code: 'notAgreement', message: ''}))
-  yield call(() => console.log('runRequestAuthentication'))
+  console.log('runRequestAuthentication')
+  yield put(loading(true))
+  const user = yield call(() => auth())
+  const idToken = yield call(() => getToken(user))
+  yield put(loading(false))
+  console.log('result', {user, idToken})
+  yield put(setUser(user))
+  yield put(user ? replace('/home') : replace('/login'))
 }
 
 function* runRequestLogout () {
-  yield call(() => console.log('runRequestLogout'))
+  console.log('runRequestLogout')
+  yield put(loading(true))
+  const response = yield call(() => logout())
+  yield put(loading(false))
+  console.log('result', {response})
+  yield put(replace('/login'))
+  // yield put(showToast('ログアウトしました'))
 }
 
 export default function* watchRequestAuthentication () {
