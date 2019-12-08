@@ -12,6 +12,7 @@ function* runRequestLogin () {
   yield put(loading(true))
   const loginResult = yield call(() => login(state.login.email, state.login.password))
   const idToken = loginResult.response ? yield call(() => getToken(loginResult.response.user)) : false
+  console.log(loginResult, idToken)
   if (loginResult.response) {
     yield put(setUser(loginResult.response.user))
     yield put(replace('/home'))

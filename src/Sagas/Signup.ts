@@ -13,6 +13,7 @@ function* runRequestSignup () {
   yield put(loading(true))
   const signupResult = yield call(() => signup(state.signup.email, state.signup.password))
   const idToken = signupResult.response ? yield call(() => getToken(signupResult.response.user)) : false
+  console.log(signupResult, idToken)
   if (signupResult.response) {
     yield put(setUser(signupResult.response.user))
     yield put(replace('/home'))

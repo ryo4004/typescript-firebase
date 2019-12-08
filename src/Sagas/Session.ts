@@ -1,7 +1,7 @@
 import { call, put, takeLatest } from 'redux-saga/effects'
 import { replace } from 'connected-react-router'
 import { SessionActionType } from '../Actions/Constants/Session'
-import { loading, setUser, setError } from '../Actions/Actions/Session'
+import { loading, setUser } from '../Actions/Actions/Session'
 import { auth, getToken, logout } from '../Library/Firebase/Authentication'
 
 function* runRequestAuthentication () {
