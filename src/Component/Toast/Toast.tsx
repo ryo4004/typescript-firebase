@@ -1,10 +1,8 @@
-import React, { FC, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import React, { FC } from 'react'
 import { connect } from 'react-redux'
-import { Dispatch } from 'redux'
 
 import store from '../../Store/Store'
-import { StateProps, DispatchProps, ToastProps } from '../../Interfaces/Toast/Toast'
+import { StateProps, ToastProps } from '../../Interfaces/Toast/Toast'
 
 import './Toast.scss'
 
