@@ -3,6 +3,7 @@ import { replace } from 'connected-react-router'
 import { LoginActionType } from '../Actions/Constants/Login'
 import { loading, changePassword, setError } from '../Actions/Actions/Login'
 import { setUser } from '../Actions/Actions/Session'
+import { showToast } from '../Actions/Actions/Toast'
 import { login, getToken } from '../Library/Firebase/Authentication'
 
 function* runRequestLogin () {
@@ -16,7 +17,7 @@ function* runRequestLogin () {
   if (loginResult.response) {
     yield put(setUser(loginResult.response.user))
     yield put(replace('/home'))
-    // yield put(showToast('ログインしました'))
+    yield put(showToast('ログインしました'))
   } else {
     yield put(setUser(false))
     yield put(setError({code: loginResult.error.code, message: loginResult.error.message}))

@@ -1,6 +1,6 @@
 import { ToastActionType, ToastAction } from '../Constants/Toast'
 
-export const showToast = (message: boolean): ToastAction => ({
+export const showToast = (message: string): ToastAction => ({
   type: ToastActionType.SHOW_TOAST,
   payload: { message }
 })

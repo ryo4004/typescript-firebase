@@ -2,6 +2,7 @@ import { call, put, takeLatest } from 'redux-saga/effects'
 import { replace } from 'connected-react-router'
 import { SessionActionType } from '../Actions/Constants/Session'
 import { loading, setUser } from '../Actions/Actions/Session'
+import { showToast } from '../Actions/Actions/Toast'
 import { auth, getToken, logout } from '../Library/Firebase/Authentication'
 
 function* runRequestAuthentication () {
@@ -22,7 +23,7 @@ function* runRequestLogout () {
   yield put(loading(false))
   console.log('result', {response})
   yield put(replace('/login'))
-  // yield put(showToast('ログアウトしました'))
+  yield put(showToast('ログアウトしました'))
 }
 
 export default function* watchRequestAuthentication () {

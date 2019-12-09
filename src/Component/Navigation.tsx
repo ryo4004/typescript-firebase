@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 import Base from './Base/Base'
 import Auth from './Auth/Auth'
-// import Toast from './Toast/Toast'
+import Toast from './Toast/Toast'
 
 const mapStateToProps = () => ({})
 
@@ -13,7 +13,7 @@ const mapDispatchToProps = () => ({})
 const Navigation: FC = () => {
   return (
     <React.Fragment>
-      {/* <Toast /> */}
+      <Toast />
       <Switch>
         <Route path='/login' component={Base} />
         <Route path='/signup' component={Base} />

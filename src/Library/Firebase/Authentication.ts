@@ -1,8 +1,6 @@
 import firebase from './firebase'
 
-export type User = {
-  user: firebase.User
-}
+export type User = firebase.User
 
 export const getToken = (user: firebase.User) => {
   console.log('token')

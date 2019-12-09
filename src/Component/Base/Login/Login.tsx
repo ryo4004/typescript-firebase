@@ -60,17 +60,14 @@ const Login: FC<LoginProps> = ({
         message = '入力を確認してください'
         break
       // Server Error
-      case 'userNotFound':
-        message = 'ユーザが見つかりません'
+      case 'auth/invalid-email':
+        message = 'メールアドレスの形式が合っていません'
         break
-      case 'passwordWrong':
-        message = 'パスワードが間違っています'
+      case 'auth/user-not-found':
+        message = 'ユーザーが見つかりません'
         break
-      case 'updateUserNotFound':
-        message = 'データアップデートエラー'
-        break
-      case 'updateUserError':
-        message = 'データベースエラー'
+      case 'auth/wrong-password':
+        message = 'ユーザーが見つかりません'
         break
       default:
         message = 'error: ' + error.code
